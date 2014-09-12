@@ -6,7 +6,7 @@
   
   #Installing Ubuntu desktop
   sudo apt-get update
-  #sudo apt-get -y install ubuntu-desktop
+  sudo apt-get -y install ubuntu-desktop
 
   # Installing Curl and RVM
   #sudo apt-get -y install curl
