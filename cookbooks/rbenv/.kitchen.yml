@@ -1,25 +1,15 @@
 ---
-driver_plugin: vagrant
-driver_config:
-  require_chef_omnibus: true
+driver:
+  name: vagrant
 
 platforms:
 - name: ubuntu-12.04
-  driver_config:
-    box: opscode-ubuntu-12.04
-    box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_provisionerless.box
   run_list:
   - recipe[apt]
 - name: ubuntu-10.04
-  driver_config:
-    box: opscode-ubuntu-10.04
-    box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-10.04_provisionerless.box
   run_list:
   - recipe[apt]
-- name: centos-6.4
-  driver_config:
-    box: opscode-centos-6.4
-    box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_centos-6.4_provisionerless.box
+- name: centos-6.5
 
 suites:
 - name: system_ruby
@@ -28,11 +18,14 @@ suites:
   - recipe[rbenv::system]
   attributes:
     rbenv:
+      plugins:
+      - name: rbenv-vars
+        git_url: https://github.com/sstephenson/rbenv-vars.git
       rubies:
-      - name: 1.9.3-p429
+      - name: 2.1.1
         environment:
           CONFIGURE_OPTS: --disable-install-rdoc
       - name: ree-1.8.7-2012.02
         environment:
           CONFIGURE_OPTS: --no-tcmalloc --no-dev-docs
-      global: 1.9.3-p429
+      global: 2.1.1

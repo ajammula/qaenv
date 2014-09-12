@@ -2,16 +2,21 @@
 # vi: set ft=ruby :
 
 Vagrant::configure("2") do |config|
+  #config.vm.box = "macbeth76/ubuntu-base"
+  #config.vm.box_url = "https://vagrantcloud.com/macbeth76/boxes/ubuntu-base"
+
   config.vm.box = "janihur/ubuntu-1404-desktop"
   config.vm.box_url = "https://vagrantcloud.com/janihur/ubuntu-1404-desktop"
 
-config.vm.provider "virtualbox" do |vb|
+ config.vm.provider "virtualbox" do |vb|
     vb.gui = true
   end
+
+ config.omnibus.chef_version = :latest 
+
+ config.vm.provision :chef_solo do |chef| 
  
-config.vm.provision :chef_solo do |chef| 
-    chef.log_level = :debug    
-    chef.cookbooks_path = "~/qaenv/cookbooks" 
+    chef.cookbooks_path = ["cookbooks" ]
 
     chef.add_recipe ("apt")   
     chef.add_recipe ("git")
@@ -26,10 +31,10 @@ config.vm.provision :chef_solo do |chef|
         'user_installs' => [
           {
             'user'    => 'vagrant',
-            'rubies'  => ['2.0.0-p247'],
-            'global'  => '2.0.0-p247',
+            'rubies'  => ['2.1.2'],
+            'global'  => '2.1.2',
             'gems'    => {
-              '2.0.0-p247' => [
+              '2.1.2' => [
                 { 'name'    => 'bundler' },
                 { 'name'    => 'rails' },
                 { 'name'    => 'haml' }
@@ -40,5 +45,6 @@ config.vm.provision :chef_solo do |chef|
         }
       }
   end
-config.vm.provision :shell, :path => "sample.sh"
+
+ config.vm.provision :shell, :path => "sample.sh"
 end
