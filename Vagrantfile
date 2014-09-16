@@ -2,14 +2,10 @@
 # vi: set ft=ruby :
 
 Vagrant::configure("2") do |config|
-  #config.vm.box = "macbeth76/ubuntu-base"
-  #config.vm.box_url = "https://vagrantcloud.com/macbeth76/boxes/ubuntu-base"
 
-  #config.vm.box = "janihur/ubuntu-1404-desktop"
-  #config.vm.box_url = "https://vagrantcloud.com/janihur/ubuntu-1404-desktop"
+  config.vm.box = "ubuntu_64"
+  config.vm.box_url = "https://vagrantcloud.com/pussinboots/boxes/ubuntu-truly"
 
-  config.vm.box = "ubuntu64"
-  config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-13.10_chef-provisionerless.box"
 
  config.vm.provider "virtualbox" do |vb|
     vb.gui = true
@@ -26,8 +22,8 @@ Vagrant::configure("2") do |config|
     chef.add_recipe ("yum")
     chef.add_recipe "build-essential"
     chef.add_recipe "ruby_build"
-    chef.add_recipe "rbenv::vagrant"
     chef.add_recipe "rbenv::user"
+    chef.add_recipe "rbenv::vagrant"
 
     chef.json = {
       'rbenv' => {

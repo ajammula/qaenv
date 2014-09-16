@@ -21,3 +21,4 @@ class Chef::Recipe
   # mix in recipe helpers
   include Chef::Rbenv::RecipeHelpers
 end
+
