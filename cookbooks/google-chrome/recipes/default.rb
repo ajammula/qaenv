@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: rbenv
+# Cookbook Name:: chromium
 # Recipe:: default
 #
-# Copyright 2011, Fletcher Nichol
+# Copyright 2011, Justin Huff
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,12 +16,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+ 
+include_recipe "apt"
 
-class Chef::Recipe
-  # mix in recipe helpers
-  include Chef::Rbenv::RecipeHelpers
+apt_repository "chrome" do
+    uri "http://dl.google.com/linux/chrome/deb/"
+    distribution "stable"
+    components ["main"]
+    key "https://dl-ssl.google.com/linux/linux_signing_key.pub"
+    action :add
 end
 
-
-
-
+package "google-chrome-" + node['google-chrome']['track']

@@ -6,39 +6,31 @@
   
   #Installing Ubuntu desktop
   sudo apt-get update
-  sudo apt-get -y install ubuntu-desktop
-
-  # Installing Curl and RVM
-  #sudo apt-get -y install curl
-#\curl -L https://get.rvm.io | bash -s stable --ruby
-# source ~/.rvm/scripts/rvm
-# rvm requirements
-# # Installing Ruby
-# rvm reinstall ruby-2.1.2
-# rvm use ruby --default
-# sudo apt-get -y install rubygems
-# sudo gem install rubygems-update
- #sudo apt-get -y install libopenssl-ruby
-  # Installing Cucumber
-#  sudo apt-get update
- sudo gem install cucumber
- sudo gem install selenium-webdriver
+  #sudo apt-get -y install ubuntu-desktop
 
   #Installing Firefox 
   sudo apt-get update
   sudo apt-get -y install firefox
 
   #Installing Java
-  wget --no-check-certificate https://github.com/aglover/ubuntu-equip/raw/master/equip_java7_64.sh && bash equip_java7_64.sh
-   
+#  wget --no-check-certificate https://github.com/aglover/ubuntu-equip/raw/master/equip_java7_64.sh && bash equip_java7_64.sh
+   sudo apt-get install default-jre
+   sudo apt-get install default-jdk
+
   #Installing Selenium server
-  wget "http://selenium-release.storage.googleapis.com/2.42/selenium-server-standalone-2.42.2.jar"
-  sudo mv selenium-server-standalone-2.42.2.jar /usr/local/bin
-  cd /home/vagrant
-  java -jar ./selenium-server-standalone-2.42.2.jar &
+#  cd ~/
+#  wget "http://selenium-release.storage.googleapis.com/2.42/selenium-server-standalone-2.42.2.jar"
+#  sudo mv selenium-server-standalone-2.42.2.jar ~/
+
+#  java -jar ./selenium-server-standalone-2.42.2.jar &
+
+ #Installing Eclipse
+  wget --no-check-certificate https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/luna/R/eclipse-standard-luna-R-linux-gtk-x86_64.tar.gz&mirror_id=272lol
 
 
- 
+
+
+
  
   
 
