@@ -21,7 +21,7 @@ Vagrant::configure("2") do |config|
 
 
   config.vm.box = " aparna/ubuntu_14.04_QA"
-  config.vm.box_url = "https://vagrantcloud.com/aparna/boxes/ubuntu_14.04_QA/versions/1/providers/virtualbox.box"
+  config.vm.box_url = "https://vagrantcloud.com/aparna/boxes/ubuntu_14.04_QA/versions/1.0/providers/virtualbox.box"
   
   config.ssh.username = "vagrant"
   config.ssh.password = "vagrant"
